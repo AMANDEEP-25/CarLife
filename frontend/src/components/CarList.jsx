@@ -48,6 +48,14 @@ function CarList() {
           <Link to={`/cars/${car._id}`}>View Details</Link>
         </div>
       ))}
+      <br />
+      <a
+        href="http://localhost:5000/api/docs"
+        target="_blank"
+        rel="noopener noreferrer"
+      >
+        API Documentation
+      </a>
     </div>
   );
 }
