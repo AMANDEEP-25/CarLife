@@ -10,7 +10,12 @@ const carRoutes = require("./routes/cars");
 
 const app = express();
 
-app.use(cors());
+const corsOptions = {
+  origin: process.env.VITE_API, // Replace with the actual frontend URL
+  methods: "GET,POST,PUT,DELETE",
+  allowedHeaders: "Content-Type,Authorization",
+};
+app.use(cors(corsOptions));
 app.use(express.json());
 
 mongoose.connect(process.env.MONGO_ATLAS, {
