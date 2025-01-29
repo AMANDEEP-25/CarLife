@@ -1,7 +1,10 @@
 // src/components/CarList.jsx
+
 import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import axios from "axios";
+
+const url = import.meta.env.VITE_API_URL;
 
 function CarList() {
   const [cars, setCars] = useState([]);
@@ -13,9 +16,12 @@ function CarList() {
 
   const fetchCars = async () => {
     try {
-      const response = await axios.get("http://localhost:5000/api/cars", {
-        headers: { Authorization: localStorage.getItem("token") },
-      });
+      const response = await axios.get(
+        `${import.meta.env.VITE_API_URL}/api/cars`,
+        {
+          headers: { Authorization: localStorage.getItem("token") },
+        }
+      );
       setCars(response.data);
     } catch (error) {
       console.error("Error fetching cars:", error);
@@ -49,11 +55,7 @@ function CarList() {
         </div>
       ))}
       <br />
-      <a
-        href="http://localhost:5000/api/docs"
-        target="_blank"
-        rel="noopener noreferrer"
-      >
+      <a href={`${url}/api/docs`} target="_blank" rel="noopener noreferrer">
         API Documentation
       </a>
     </div>

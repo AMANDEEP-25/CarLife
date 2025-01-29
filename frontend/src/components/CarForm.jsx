@@ -14,7 +14,7 @@ function CarForm() {
     e.preventDefault();
     try {
       await axios.post(
-        "http://localhost:5000/api/cars",
+        `${import.meta.env.VITE_API_URL}/api/cars`,
         { title, description, images, tags },
         { headers: { Authorization: localStorage.getItem("token") } }
       );

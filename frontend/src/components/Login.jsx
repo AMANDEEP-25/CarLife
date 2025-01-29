@@ -2,6 +2,7 @@
 import React, { useState } from "react";
 import axios from "axios";
 
+const url = import.meta.env.VITE_API_URL;
 function Login({ onLogin }) {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
@@ -11,7 +12,7 @@ function Login({ onLogin }) {
     e.preventDefault();
     try {
       const response = await axios.post(
-        `http://localhost:5000/api/auth/${isSignup ? "signup" : "login"}`,
+        `${url}/api/auth/${isSignup ? "signup" : "login"}`,
         {
           username,
           password,

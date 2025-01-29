@@ -3,6 +3,7 @@ import React, { useState, useEffect } from "react";
 import { useParams, useNavigate } from "react-router-dom";
 import axios from "axios";
 
+const url = import.meta.env.VITE_API_URL;
 function CarDetail() {
   const [car, setCar] = useState(null);
   const [isEditing, setIsEditing] = useState(false);
@@ -15,7 +16,7 @@ function CarDetail() {
 
   const fetchCar = async () => {
     try {
-      const response = await axios.get(`http://localhost:5000/api/cars/${id}`, {
+      const response = await axios.get(`${url}/api/cars/${id}`, {
         headers: { Authorization: localStorage.getItem("token") },
       });
       setCar(response.data);
@@ -27,7 +28,7 @@ function CarDetail() {
   const handleUpdate = async (e) => {
     e.preventDefault();
     try {
-      await axios.put(`http://localhost:5000/api/cars/${id}`, car, {
+      await axios.put(`${url}/api/cars/${id}`, car, {
         headers: { Authorization: localStorage.getItem("token") },
       });
       setIsEditing(false);
@@ -39,7 +40,7 @@ function CarDetail() {
   const handleDelete = async () => {
     if (window.confirm("Are you sure you want to delete this car?")) {
       try {
-        await axios.delete(`http://localhost:5000/api/cars/${id}`, {
+        await axios.delete(`${url}/api/cars/${id}`, {
           headers: { Authorization: localStorage.getItem("token") },
         });
         navigate("/cars");
