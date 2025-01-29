@@ -11,9 +11,7 @@ const carRoutes = require("./routes/cars");
 const app = express();
 
 const corsOptions = {
-  origin: "https://car-life-2dh8.vercel.app", // Allow frontend URL
-  methods: "GET,POST,PUT,DELETE", // Allow necessary methods
-  allowedHeaders: "Content-Type,Authorization", // Allow specific headers
+  origin: process.env.VITE_API, // Allow frontend URL
   credentials: true, // If using cookies or authentication
 };
 app.use(cors(corsOptions));
