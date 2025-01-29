@@ -12,7 +12,6 @@ const app = express();
 
 const corsOptions = {
   origin: process.env.VITE_API, // Allow frontend URL
-  credentials: true, // If using cookies or authentication
 };
 app.use(cors(corsOptions));
 app.use(express.json());
