@@ -1,3 +1,5 @@
+require("dotenv").config();
+
 const express = require("express");
 const mongoose = require("mongoose");
 const cors = require("cors");
@@ -11,13 +13,10 @@ const app = express();
 app.use(cors());
 app.use(express.json());
 
-mongoose.connect(
-  "mongodb+srv://jyotsnaaman2003:GnGTsnKIK2r9Kjhi@carmanagement.u3x5y.mongodb.net/?retryWrites=true&w=majority&appName=carManagement",
-  {
-    useNewUrlParser: true,
-    useUnifiedTopology: true,
-  }
-);
+mongoose.connect(process.env.MONGO_ATLAS, {
+  useNewUrlParser: true,
+  useUnifiedTopology: true,
+});
 
 // Swagger configuration
 const swaggerOptions = {
