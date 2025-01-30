@@ -12,3 +12,6 @@ API docs page
 
 Add car page
 <img width="946" alt="addCar" src="https://github.com/user-attachments/assets/bc17da43-0eef-4e0f-a528-647ecddff94b" />
+
+Car edit page 
+<img width="954" alt="image" src="https://github.com/user-attachments/assets/d727e528-3aa9-4c1a-9ddc-bfe9996d944b" />
